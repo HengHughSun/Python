@@ -1,0 +1,54 @@
+运算    运算符          解释
+属于关系 in             判断一个元素是否属于这个集合
+元素数目 len            返回值是集合中元素的数目
+|(并集) 集合 A | 集合 B  返回一个新集合,这个集合是集合 A,B 的并集  也可以用函数A.union(B)
+&(交集) 集合 A & 集合 B  返回一个新集合,这个集合只有集合 A,B 共有的元素,是集合 A,B 的交集 A.intersection(B)
+-      集合 A – 集合 B  返回一个新集合,这个集合是集合 A 除去 A 与 B共有的元素(A-(A∩B)) A.difference(B)
+<=     集合 A <= 集合 B 判断集合 A 中的所有元素是否都在集合 B 中,返回布尔值 True 或者 False A.issubset(B)
+                表五:Python 中集合的运算
+add    A.add(item)      把 item 这个元素添加到集合 A 中
+remove A.remove(item)   从集合 A 中除去 item 这个元素
+pop    A.pop()          从集合 A 中移除任意一个元素
+clear  A.clear()        移除集合 A 中的所有元素
+>>> mySet
+{False, 4.5, 3, 6, 'cat'}
+>>> len(mySet)
+5
+>>> False in mySet
+True
+>>> "dog" in mySet
+False
+
+>>> mySet
+{False, 4.5, 3, 6, 'cat'}
+>>> yourSet = {99,3,100}
+>>> mySet.union(yourSet)
+{False, 4.5, 3, 100, 6, 'cat', 99}
+>>> mySet | yourSet
+{False, 4.5, 3, 100, 6, 'cat', 99}
+>>> mySet.intersection(yourSet)
+{3}
+>>> mySet & yourSet
+{3}
+>>> mySet.difference(yourSet)
+{False, 4.5, 6, 'cat'}
+>>> mySet - yourSet
+{False, 4.5, 6, 'cat'}
+>>> {3,100}.issubset(yourSet)
+True
+>>> {3,100}<=yourSet
+True
+>>> mySet.add("house")
+>>> mySet
+{False, 4.5, 3, 6, 'house', 'cat'}
+>>> mySet.remove(4.5)
+>>> mySet
+{False, 3, 6, 'house', 'cat'}
+>>> mySet.pop()
+False
+>>> mySet
+{3, 6, 'house', 'cat'}
+>>> mySet.clear()
+>>> mySet
+set()
+>>>
