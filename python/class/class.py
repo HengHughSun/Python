@@ -12,7 +12,7 @@ class Dog():
         self.name = name
         self.age = age 
         self.weight = 20
-    def sit(self):
+    def sit(self): #数据封装 也被称为class的method
         """模拟小狗被命令蹲下"""
         print(self.name.title() + " is now sitting")
     def roll_over(self):
