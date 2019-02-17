@@ -45,11 +45,11 @@ def createCounter():
         count[0] += 1
         return count[0]
     return counter
-##这种情况可行是因为count指向的是一个列表的实例对象，实质上，列表的实例对象的地址一直没变，只是其内容的指向改变了而已
-      |
+#这种情况可行是因为count指向的是一个列表的实例对象，实质上，列表的实例对象的地址一直没变，只是其内容的指向改变了而已
+'''
 count[0]
 count[1]
-count[2] 地址没变-->变量没有改变
+count[2] 地址没变-->变量没有改变'''
 ###而nonlocal关键字用来在函数或其他作用域中修改外层(非全局)变量
 
 def createCounter():

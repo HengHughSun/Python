@@ -24,6 +24,7 @@ attribute 属性
 class 类,对象
     python内置的类 
         math、functools、
+    class中的method 数据封装
 method 类函数，方法 | 给对象发消息实际上就是调用对象对应的关联函数，我们称之为对象的方法Method
     .pop（）  .sort（） .remove()
 
