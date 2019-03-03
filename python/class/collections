@@ -1,0 +1,14 @@
+namedtuple
+>>> from collections import namedtuple
+>>> Point = namedtuple('Point', ['x', 'y'])
+>>> p = Point(1, 2)
+>>> p.x
+1
+>>> p.y
+2
+namedtuple是一个函数，它用来创建一个自定义的tuple对象，并且规定了tuple元素的个数，并可以用属性而不是索引来引用tuple的某个元素。
+# namedtuple('名称', [属性list]):
+Circle = namedtuple('Circle', ['x', 'y', 'r'])
+
+deque
+
