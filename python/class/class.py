@@ -12,7 +12,12 @@ class Dog():
         self.name = name
         self.age = age 
         self.weight = 20
+<<<<<<< HEAD
     def sit(self): #数据封装 也被称为class的method
+=======
+    #数据封装 
+    def sit(self): 
+>>>>>>> fixtest
         """模拟小狗被命令蹲下"""
         print(self.name.title() + " is now sitting")
     def roll_over(self):
@@ -34,21 +39,36 @@ print("My dog is " +str(my_dog.weight) + " kg")
 
 """继承"""
 class Car():
+<<<<<<< HEAD
 """ 一次模拟汽车的简单尝试 """
         def __init__(self, make, model, year):
+=======
+            #""" 一次模拟汽车的简单尝试 """
+    def __init__(self, make, model, year):
+>>>>>>> fixtest
             self.make = make
             self.model = model
             self.year = year
             self.odometer_reading = 0
+<<<<<<< HEAD
         def get_descriptive_name(self):
             long_name = str(self.year) + ' ' + self.make + ' ' + self.modelreturn long_name.title()
         def read_odometer(self):
             print("This car has " + str(self.odometer_reading) + " miles on it.")
         def update_odometer(self, mileage):
+=======
+    def get_descriptive_name(self):
+            long_name = str(self.year) + ' ' + self.make + ' ' + self.model
+            return long_name.title()
+    def read_odometer(self):
+            print("This car has " + str(self.odometer_reading) + " miles on it.")
+    def update_odometer(self, mileage):
+>>>>>>> fixtest
             if mileage >= self.odometer_reading:
                 self.odometer_reading = mileage
             else:
                 print("You can't roll back an odometer!")
+<<<<<<< HEAD
         def increment_odometer(self, miles):
             self.odometer_reading += miles
 class ElectricCar(Car):
@@ -57,3 +77,12 @@ class ElectricCar(Car):
             super().__init__(make, model, year)#super()是一个特殊函数，讲父类和子类关联起来
             """父类也被称为supperclass"""
             
+=======
+    def increment_odometer(self, miles):
+            self.odometer_reading += miles
+class ElectricCar(Car):
+        def __init__(self, make, model, year):
+       # """ 初始化父类的属性 """
+            super().__init__(make, model, year)#super()是一个特殊函数，讲父类和子类关联起来
+        #    """父类也被称为supperclass"""
+>>>>>>> fixtest

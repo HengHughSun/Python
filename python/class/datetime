@@ -1,0 +1,67 @@
+datetime 是一个模块
+datetime.datetime 是一个类, So form datetime import datetime
+
+以下是作为类 
+
+datetime.now() # 获取当前日期和时间
+要指定某个日期和时间，我们直接用参数构造一个datetime：
+dt = datetime(2015, 4, 19, 12, 20) # 用指定日期时间创建datetime
+print(dt)
+2015-04-19 12:20:00
+
+-----datetime --> timestamp
+在计算机中，时间实际上是用数字表示的。我们把1970年1月1日 00:00:00 UTC+00:00时区的时刻称为epoch time，记为0（1970年以前的时间timestamp为负数），当前时间就是相对于epoch time的秒数，称为timestamp。
+>>> dt = datetime(2015, 4, 19, 12, 20) # 用指定日期时间创建datetime
+>>> dt.timestamp() # 把datetime转换为timestamp
+1429417200.0
+注意Python的timestamp是一个浮点数。如果有小数位，小数位表示毫秒数。
+
+----timestamp --> datetime
+t = 1429417200.0
+datetime.fromtimestamp(t) 本地时间 因为timetamp 无时区概念 datetime有
+2015-04-19 12:20:00
+datetime.utcfromtimetamp(t) #UTC时间
+2015-04-19 04:20:00
+
+
+str --> datetime
+datetime.strptime('2015-6-1 18:19:00','%Y-%m-%d %H:%M:%S')
+
+
+datetime --> str
+
+STR-TIME.strftime('%a,%b %d %H:%M')
+>>> print(datetime.now().strftime('%a,%b %d %H:%M'))
+Sun,Mar 03 21:43
+
+时间加减可以直接用+和-运算符，不过需要导入timedelta这个类：
+>>> from datetime import timedelta， datetime 
+now = datetime.now()
+>>> now
+datetime.datetime(2019, 3, 3, 21, 48, 47, 781324)
+>>> now + timedelta(hours=2)
+datetime.datetime(2019, 3, 3, 23, 48, 47, 781324)
+>>> now - timedelta(days=2)
+datetime.datetime(2019, 3, 1, 21, 48, 47, 781324)
+一个datetime类型有一个时区属性tzinfo，但是默认为None，所以无法区分这个datetime到底是哪个时区，除非强行给datetime设置一个时区：
+>>> from datetime import timedelta， datetime , timezone
+
+-----时区转换
+utcnow()拿到UTC时间
+拿到UTC时间，并强制设置时区为UTC+0:00:
+>>> utc_dt = datetime.utcnow().replace(tzinfo=timezone.utc)
+时区转换的关键在于，拿到一个datetime时，要获知其正确的时区，然后强制设置时区，作为基准时间。
+
+利用带时区的datetime，通过astimezone()方法，可以转换到任意时区。
+
+如果要存储datetime，最佳方法是将其转换为timestamp再存储，因为timestamp的值与时区完全无关。
+
+
+
+
+
+
+
+
+
+

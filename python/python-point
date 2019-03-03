@@ -8,7 +8,18 @@ function 函数
             isinstance() 与 type() 区别：
             type() 不会认为子类是一种父类类型，不考虑继承关系。
             isinstance() 会认为子类是一种父类类型，考虑继承关系。
+<<<<<<< HEAD
             如果要判断两个类型是否相同推荐使用 isinstance()。
+=======
+            如果要判断两个类型是否相同推荐使用 isinstance()。isinstance((1, 2, 3), (list, tuple))  True
+        dir()  获取一个对象的所有属性和方法,配合getattr()、setattr()以及hasattr()，我们可以直接操作一个对象的状态：
+                        一个正确的用法的例子如下：
+
+                            def readImage(fp):
+                                if hasattr(fp, 'read'):
+                                    return readData(fp)
+                                return None
+>>>>>>> fixtest
         bin()二进制 
         hex()把一个整数转换成十六进制表示的字符串
     高级用法
@@ -21,6 +32,7 @@ function 函数
 
 statement/sentence 声明/句子、命题  def   del  for 
 attribute 属性
+<<<<<<< HEAD
 class 类,对象
     python内置的类 
         math、functools、
@@ -33,13 +45,113 @@ lisa = Student('Lisa Simpson', 87)
 bart.print_score()
 lisa.print_score()
 
+=======
+---函数 优点:便于理解和重复使用
+    class 类,对象  
+        python内置的类 
+            math、functools、
+        
+        method 类函数，方法 | 给对象发消息实际上就是调用对象对应的关联函数，我们称之为对象的方法Method
+                        换种说法就是方法是于‘实例’绑定的函数，和普通函数不同，方法可以<直接>访问实例的数据
+        .pop（）  .sort（） .remove()
+
+    
+
+        数据封装：
+            将一个对象的多个状态写为一个函数
+        继承和多态：
+            继承Son(Father)    多重继承，一个子类就可以同时获得多个父类的所有功能。 命令格式XXXMixIn
+            多态：子态 覆盖 父态  父态 无法覆盖 子态
+                多态的好处就是，当我们需要传入Dog、Cat、Tortoise……时，我们只需要接收Animal类型就可以了，
+                因为Dog、Cat、Tortoise……都是Animal类型，然后，按照Animal类型进行操作即可。由于Animal类型有run()方法，
+                因此，传入的任意类型，只要是Animal类或者子类，就会自动调用实际类型的run()方法，这就是多态的意思：
+
+
+        实例属性和类属性
+            实例属性属于各个实例所有，互不干扰；
+
+            类属性属于类所有，所有实例共享一个属性；
+
+            不要对实例属性和类属性使用相同的名字，否则将产生难以发现的错误。
+        
+        __slots__
+        为了达到限制的目的，Python允许在定义class的时候，定义一个特殊的__slots__变量，来限制该class实例能添加的属性
+        对继承的子类并不生效
+
+        
+        @property
+        @property的实现比较复杂，我们先考察如何使用。把一个getter方法变成属性，只需要加上@property就可以了，
+        此时，@property本身又创建了另一个装饰器@score.setter，负责把一个setter方法变成属性赋值，
+        于是，我们就拥有一个可控的属性操作：
+
+
+        还可以定义只读属性，只定义getter方法，不定义setter方法就是一个只读属性：
+
+错误处理，调试，单元测试，文档测试
+    错误处理： 1、高级语言通常都内置了一套try...except...finally...的错误处理机制 
+              用raise抛出
+              2、 logging模块 记录到file或console  分debug info warning error
+    调试：  就用IDE的断点测试 或者 logging模块
+    单元测试： unittest模块
+            编写单元测试时，我们需要编写一个测试类，从unittest.TestCase继承。
+
+        以test开头的方法就是测试方法，不以test开头的方法不被认为是测试方法，测试的时候不会被执行。
+        对每一类测试都需要编写一个test_xxx()方法。由于unittest.TestCase提供了很多内置的条件判断，
+        我们只需要调用这些方法就可以断言输出是否是我们所期望的。最常用的断言就是assertEqual()：
+
+            setUp()和tearDown()方法有什么用呢？设想你的测试需要启动一个数据库，这时，
+            就可以在setUp()方法中连接数据库，在tearDown()方法中关闭数据库，这样，不必在每个测试方法中重复相同的代码：
+
+
+    文档测试：
+        Python内置的“文档测试”（doctest）模块可以直接提取注释中的代码并执行测试。
+        if __name__ == '__main__':
+            import doctest
+            doctest.testmod()
+
+
+
+文件
+    open() read(size)/readline()/write()  close() 
+        建议用 with 不建议将open()赋值给某个人
+        open(encoding='gbk', errors='ignore')
+            r
+            rb 
+            w 
+            wb
+                a append 已追加模式写入
+        
+        readline()可以每次读取一行内容，调用readlines()一次读取所有内容并按行返回list
+        如果文件很小，read()一次性读取最方便；如果不能确定文件大小，反复调用read(size)比较保险；
+        如果是配置文件，调用readlines()最方便
+（1）以r或R开头的python中的字符串表示（非转义的）原始字符串
+f = open(r'C:\Program Files\Adobe\Reader 9.0\Setup Files\setup.ini','r')
+
+（2）以u或U开头的字符串表示unicode字符串
+            
+>>>>>>> fixtest
 类名应采用驼峰命名法 ,即将类名中的每个单词的首字母都大写,而不使用下划线。
 实例名和模块名都采用小写格式,并在单词之间加上下划线。
 正常的函数和变量名是公开的（public），可以被直接引用，比如：abc，x123，PI等；
 
 类似__xxx__这样的变量是特殊变量，可以被直接引用，但是有特殊用途，比如上面的__author__，__name__就是特殊变量，hello模块定义的文档注释也可以用特殊变量__doc__访问，我们自己的变量一般不要用这种变量名；
 
+<<<<<<< HEAD
 类似_xxx和__xxx这样的函数或变量就是非公开的（private），不应该被直接引用，比如_abc，__abc等；
+=======
+///类似_xxx和__xxx这样的函数或变量就是非公开的（private），不应该被直接引用，比如_abc，__abc等；
+
+我们要添加自己的搜索目录，有两种方法：
+
+一是直接修改sys.path，添加要搜索的目录：
+>>> import sys
+>>> sys.path.append('/Users/michael/my_py_scripts')
+这种方法是在运行时修改，运行结束后失效。
+
+第二种方法是设置环境变量PYTHONPATH，该环境变量的内容会被自动添加到模块搜索路径中。设置方式与设置Path环境变量类似。注意只需要添加你自己的搜索路径，Python自己本身的搜索路径不受影响。
+
+
+>>>>>>> fixtest
 
 
 组合:支持嵌套 key具有唯一性

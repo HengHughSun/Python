@@ -6,6 +6,7 @@
 # Software: file_and_error.py
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 with open('./python/pi_digits.txt') as file_object:
 =======
 with open('pi_digits.txt') as file_object:
@@ -16,6 +17,9 @@ with open('pi_digits.txt') as file_object:
 with open('./python/pi_digits.txt') as file_object:
 >>>>>>> python Basic
 >>>>>>> 9b640ca
+=======
+with open('./python/pi_digits.txt') as file_object:
+>>>>>>> fixtest
     contents = file_object.read()
     print(contents)
 file_name = "/home/heng/learn/python/pi_digits.txt"

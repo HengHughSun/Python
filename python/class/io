@@ -1,0 +1,30 @@
+import os
+ 
+
+os.name
+os.uname()
+os.environ
+os.environ.get('key')
+
+# 查看当前目录的绝对路径:
+>>> os.path.abspath('.')
+'/Users/michael'
+# 在某个目录下创建一个新目录，首先把新目录的完整路径表示出来:
+>>> os.path.join('/Users/michael', 'testdir')
+'/Users/michael/testdir'
+# 然后创建一个目录:
+>>> os.mkdir('/Users/michael/testdir')
+# 删掉一个目录:
+>>> os.rmdir('/Users/michael/testdir')
+
+os.path.split()拆分路径
+os.path.splitext()可以直接让你得到文件扩展名，
+
+    要列出所有的.py文件，也只需一行代码：
+
+    >>> [x for x in os.listdir('.') if os.path.isfile(x) and os.path.splitext(x)[1]=='.py']
+    ['apis.py', 'config.py', 'models.py', 'pymonitor.py', 'test_db.py', 'urls.py', 'wsgiapp.py']
+
+--进程 线程
+#子进程获得父进程PID
+os.geippid()
