@@ -3,7 +3,7 @@
 # Time    : 19:28:00/02/12/19
 # Author  : Hugh Sun
 # File    : decorator.py
-# Software: decorator装饰器  @用法 @log 相当于now = log(now) @log('execute') == now = log('execute')(now)
+# Software: decorator装饰器  @用法 @log 相当于now = log(now)  now(变量) @log('execute') == now = log('execute')(now)
 
 import time, functools
 '''计算时间'''
@@ -20,7 +20,8 @@ def metric(fn):
 def fast(x, y):
     time.sleep(0.0012)
     return x + y
-
+#相当于fast = metric(fast)
+#        fast(x,y)
 @metric
 def slow(x, y, z):
     time.sleep(0.1234)
@@ -47,7 +48,7 @@ def log(text):
             return f
         return wrapper
     return decorator if isinstance(text, str) else decorator(text)
-
+# 
 '''def log(text): *关键字函数和位置函数的区别('execute',) now():    execute now():
     def decorator(func):
         @functools.wraps(func)

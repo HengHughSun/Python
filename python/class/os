@@ -25,6 +25,28 @@ os.path.splitext()可以直接让你得到文件扩展名，
     >>> [x for x in os.listdir('.') if os.path.isfile(x) and os.path.splitext(x)[1]=='.py']
     ['apis.py', 'config.py', 'models.py', 'pymonitor.py', 'test_db.py', 'urls.py', 'wsgiapp.py']
 
+
+
+---jion
+用法：将多个路径组合后返回
+
+语法：os.path.join(path1[,path2[,path3[,...[,pathN]]]])
+
+返回值：将多个路径组合后返回
+支持str、list、tuple、dict
+
+注意：第一个/绝对路径\之前的参数将会被忽略
+合并路径
+
+>>> import os
+>>> os.path.join('/my/','name/is/','vampire_techking')
+'/my/name/is/vampire_techking'
+>>> os.path.join('/my/','name/is/','/vampire_techking')
+'/vampire_techking'
+>>> os.path.join('/my/','/name/is/','vampire_techking')
+'/name/is/vampire_techking'
+
+
 --进程 线程
 #子进程获得父进程PID
 os.geippid()
